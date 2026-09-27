@@ -1,0 +1,213 @@
+/* Color Variables & Theme Tokens */
+:root {
+  --wl-bg: #ffffff;
+  --wl-border: #e2e8f0;
+  --wl-header-text: #0f172a;
+  --wl-body-text: #334155;
+  --wl-muted-text: #64748b;
+
+  --wl-btn-bg: #f8fafc;
+  --wl-btn-border: #cbd5e1;
+  --wl-btn-hover: #e2e8f0;
+
+  --wl-success: #15803d;
+  --wl-danger: #dc2626;
+  --wl-danger-hover: #991b1b;
+  --wl-danger-bg: #fee2e2;
+
+  --wl-radius: 8px;
+  --wl-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --wl-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Card Container */
+.watchlist-card {
+  background-color: var(--wl-bg);
+  border: 1px solid var(--wl-border);
+  border-radius: var(--wl-radius);
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--wl-shadow);
+  font-family: var(--wl-font);
+  box-sizing: border-box;
+}
+
+/* Header */
+.watchlist-title {
+  margin: 0 0 1rem 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--wl-header-text);
+}
+
+/* Refresh Control Area */
+.watchlist-refresh-wrapper {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.btn-refresh-stocks {
+  font-family: inherit;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--wl-header-text);
+  background-color: var(--wl-btn-bg);
+  border: 1px solid var(--wl-btn-border);
+  padding: 0.5rem 0.875rem;
+  border-radius: calc(var(--wl-radius) - 2px);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-refresh-stocks:hover:not(:disabled) {
+  background-color: var(--wl-btn-hover);
+}
+
+.btn-refresh-stocks:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Refresh Messages */
+.refresh-status-msg {
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+
+.msg-success {
+  color: var(--wl-success);
+}
+
+.msg-error {
+  color: var(--wl-danger);
+}
+
+/* Status Messages */
+.watchlist-loading-text {
+  font-size: 0.875rem;
+  color: var(--wl-muted-text);
+  margin-top: 0.75rem;
+}
+
+.watchlist-error-text {
+  font-size: 0.875rem;
+  color: var(--wl-danger);
+  margin-top: 0.75rem;
+}
+
+.watchlist-empty-text {
+  font-size: 0.875rem;
+  color: var(--wl-muted-text);
+  font-style: italic;
+  margin-top: 0.75rem;
+}
+
+/* Table Design */
+.watchlist-table-wrapper {
+  width: 100%;
+  max-width: 500px;
+  overflow-x: auto;
+  border: 1px solid var(--wl-border);
+  border-radius: calc(var(--wl-radius) - 2px);
+  margin-top: 0.75rem;
+}
+
+.watchlist-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.watchlist-table th {
+  background-color: #f8fafc;
+  color: var(--wl-muted-text);
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.625rem 0.875rem;
+  border-bottom: 1px solid var(--wl-border);
+}
+
+.th-left {
+  text-align: left;
+}
+
+.th-right {
+  text-align: right;
+}
+
+.watchlist-row {
+  transition: background-color 0.15s ease;
+}
+
+.watchlist-row:hover {
+  background-color: #f8fafc;
+}
+
+.watchlist-row td {
+  padding: 0.625rem 0.875rem;
+  border-bottom: 1px solid var(--wl-border);
+  color: var(--wl-body-text);
+}
+
+.watchlist-row:last-child td {
+  border-bottom: none;
+}
+
+.symbol-cell {
+  font-weight: 600;
+  color: #2563eb;
+}
+
+.name-cell {
+  color: var(--wl-muted-text);
+}
+
+.action-cell {
+  text-align: right;
+}
+
+/* Remove Button */
+.btn-remove-stock {
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--wl-danger);
+  background: transparent;
+  border: 1px solid transparent;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-remove-stock:hover {
+  background-color: var(--wl-danger-bg);
+  color: var(--wl-danger-hover);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+  .watchlist-card {
+    padding: 1rem;
+  }
+
+  .watchlist-refresh-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-refresh-stocks {
+    width: 100%;
+    text-align: center;
+  }
+
+  .watchlist-table-wrapper {
+    max-width: 100%;
+  }
+}

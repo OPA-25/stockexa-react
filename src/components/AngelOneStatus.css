@@ -1,0 +1,169 @@
+/* Custom Properties & Color Palette */
+:root {
+  --status-bg: #ffffff;
+  --status-border: #e2e8f0;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  
+  --connected-color: #15803d;
+  --connected-bg: #dcfce7;
+  
+  --error-color: #b91c1c;
+  --error-bg: #fee2e2;
+  
+  --disconnected-color: #b45309;
+  --disconnected-bg: #fef3c7;
+  
+  --btn-primary: #2563eb;
+  --btn-primary-hover: #1d4ed8;
+  
+  --radius-sm: 8px;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Card Container */
+.broker-status-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 10px 16px;
+  background-color: var(--status-bg);
+  border: 1px solid var(--status-border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-sm);
+  font-family: var(--font-family);
+  box-sizing: border-box;
+}
+
+/* Broker Text & Status Group */
+.broker-info-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.broker-label {
+  font-weight: 600;
+  color: var(--text-main);
+  font-size: 0.875rem;
+}
+
+/* Status Badges & Dots */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* Connected State */
+.status-connected {
+  background-color: var(--connected-bg);
+  color: var(--connected-color);
+}
+.status-connected .status-dot {
+  background-color: var(--connected-color);
+}
+
+/* Error State */
+.status-error {
+  background-color: var(--error-bg);
+  color: var(--error-color);
+}
+.status-error .status-dot {
+  background-color: var(--error-color);
+}
+
+/* Disconnected State */
+.status-disconnected {
+  background-color: var(--disconnected-bg);
+  color: var(--disconnected-color);
+}
+.status-disconnected .status-dot {
+  background-color: var(--disconnected-color);
+}
+
+/* Error Descriptions */
+.broker-error-sub {
+  color: var(--error-color);
+  font-size: 0.8125rem;
+}
+
+.broker-error-text {
+  color: var(--error-color);
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+
+/* Buttons & Action Area */
+.broker-action-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-broker-connect {
+  font-family: inherit;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: var(--btn-primary);
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.btn-broker-connect:hover:not(:disabled) {
+  background-color: var(--btn-primary-hover);
+}
+
+.btn-broker-connect:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Responsive Layout Adjustments */
+@media (max-width: 600px) {
+  .broker-status-card {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 12px;
+  }
+
+  .broker-info-group {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .broker-action-group {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .btn-broker-connect {
+    width: 100%;
+    padding: 8px 14px;
+    text-align: center;
+  }
+}

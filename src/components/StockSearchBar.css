@@ -1,0 +1,179 @@
+/* Search Bar Variables & Theme Rules */
+:root {
+  --search-bg: #ffffff;
+  --search-border: #cbd5e1;
+  --search-border-focus: #2563eb;
+  --search-text-primary: #0f172a;
+  --search-text-muted: #64748b;
+  --search-hover-bg: #f8fafc;
+  --search-accent: #2563eb;
+  --search-accent-bg: #eff6ff;
+  --search-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --search-radius: 8px;
+  --search-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Wrapper Container */
+.search-bar-container {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  margin-bottom: 1rem;
+  font-family: var(--search-font);
+  box-sizing: border-box;
+}
+
+/* Input Box Styling */
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  font-size: 0.875rem;
+  color: var(--search-text-muted);
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.625rem 2.25rem 0.625rem 2.25rem;
+  font-size: 0.875rem;
+  font-family: inherit;
+  color: var(--search-text-primary);
+  background-color: var(--search-bg);
+  border: 1px solid var(--search-border);
+  border-radius: var(--search-radius);
+  outline: none;
+  transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
+}
+
+.search-input:focus {
+  border-color: var(--search-border-focus);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.search-input::placeholder {
+  color: var(--search-text-muted);
+}
+
+/* Loading Indicator Spinner */
+.search-spinner {
+  position: absolute;
+  right: 12px;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--search-border);
+  border-top-color: var(--search-accent);
+  border-radius: 50%;
+  animation: search-spin 0.6s linear infinite;
+}
+
+@keyframes search-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Dropdown Menu */
+.search-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  background-color: var(--search-bg);
+  border: 1px solid var(--search-border);
+  border-radius: var(--search-radius);
+  max-height: 280px;
+  overflow-y: auto;
+  z-index: 50;
+  box-shadow: var(--search-shadow);
+}
+
+/* Individual Search Items */
+.search-result-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.625rem 0.875rem;
+  cursor: pointer;
+  border-bottom: 1px solid #f1f5f9;
+  transition: background-color 0.15s ease;
+}
+
+.search-result-item:last-child {
+  border-bottom: none;
+}
+
+.search-result-item:hover {
+  background-color: var(--search-hover-bg);
+}
+
+.search-result-item:hover .add-badge {
+  opacity: 1;
+  background-color: var(--search-accent-bg);
+  color: var(--search-accent);
+}
+
+/* Stock Info Labels */
+.stock-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow: hidden;
+}
+
+.stock-symbol {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--search-text-primary);
+}
+
+.stock-name {
+  font-size: 0.75rem;
+  color: var(--search-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Hover Action Button Badge */
+.add-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  color: transparent;
+  transition: all 0.15s ease;
+}
+
+/* Empty Results Message */
+.search-dropdown.empty-result {
+  padding: 0.875rem;
+  font-size: 0.875rem;
+  color: var(--search-text-muted);
+  text-align: center;
+}
+
+/* Responsive Styles for Mobile */
+@media (max-width: 480px) {
+  .search-bar-container {
+    max-width: 100%;
+  }
+
+  .search-input {
+    font-size: 1rem; /* Prevents auto-zoom on iOS browsers */
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .add-badge {
+    opacity: 1;
+    color: var(--search-accent);
+    background-color: var(--search-accent-bg);
+  }
+}
